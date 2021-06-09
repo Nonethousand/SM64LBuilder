@@ -15,6 +15,21 @@ chmod 111 builder.sh
 ```
 ./builder.sh --custom-repo <github link goes here>
 ```
+If
+```
+chmod 111 builder.sh
+```
+doesn't work then run these:
+```
+sudo apt update
+sudo apt install nemo
+nemo
+```
+Go into SM64LBuilder folder and right click builder.sh
+Click on proporties then click on permissions.
+Click allow executing file as a program
+![Screenshot 2021-06-09 2 42 58 PM](https://user-images.githubusercontent.com/78574005/121433689-2ff38100-c931-11eb-99b1-26172a542543.png)
+
 # For testing
 First open the Terminal. Run this command:
 ```

@@ -8,27 +8,12 @@ First open the Terminal. Run these commands:
 ```
 git clone https://github.com/HiImBlahh/SM64LBuilder.git
 cd SM64LBuilder
-chmod 111 builder.sh
+chmod 755 builder.sh
 ./builder.sh <repo name goes here>
 ```
 ***or***
 ```
 ./builder.sh --custom-repo <github link goes here>
-```
-If
-```
-chmod 111 builder.sh
-```
-doesn't work then run these:
-```
-sudo apt update
-sudo apt install nemo
-nemo
-```
-Go into SM64LBuilder folder and right click builder.sh
-Click on proporties then click on permissions.
-Click allow executing file as a program
-![Screenshot 2021-06-09 2 42 58 PM](https://user-images.githubusercontent.com/78574005/121433689-2ff38100-c931-11eb-99b1-26172a542543.png)
 
 # For testing
 First open the Terminal. Run this command:

@@ -3,6 +3,12 @@ SM64 Pc Port Builder for linux and Chromebook
 
 Only 5 built in repo scripts so far. Will add more soon.
 
+Run
+```
+./builder --help
+```
+for help.
+
 # For Casual Use
 First open the Terminal. Run these commands:
 ```
@@ -17,7 +23,7 @@ chmod 755 builder.sh
 ```
 # How to see the built in repo scripts
 ```
-Go to ~/SM64LBuilder/scripts
+./builder --library
 ```
 # For testing
 First open the Terminal. Run this command:

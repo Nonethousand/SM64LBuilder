@@ -1,3 +1,8 @@
+if [ "$1 -eq --library" ]; then
+cd ~/SM64LBuilder/repos
+ls
+cd ~/SM64LBuilder
+else
 if [ "$1 -eq --custom-repo" ]; then
 cd repos
 git clone $2
@@ -20,6 +25,7 @@ chmod 755 $1.sh
 sh $1.sh
 else
 echo $1 "not found!"
+fi
 fi
 fi
 

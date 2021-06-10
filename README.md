@@ -19,7 +19,7 @@ chmod 755 builder.sh
 ```
 # How to see the built in repo scripts
 ```
-./builder.sh --library
+Go to ~/SM64LBuilder/scripts
 ```
 # For testing
 First open the Terminal. Run this command:

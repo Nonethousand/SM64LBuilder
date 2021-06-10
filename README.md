@@ -1,7 +1,7 @@
 # SM64LBuilder
 SM64 Pc Port Builder for linux and Chromebook
 
-***It's working!***
+***It's working, but for some reason always builds with --custom repo.***
 
 Only 4 built in repo scripts so far. Will add more soon.
 

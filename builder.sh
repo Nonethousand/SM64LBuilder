@@ -5,7 +5,7 @@ if [ $answer == "y" ]; then
 echo "Removing SM64LBuilder... Bye..."
 cd
 rm -rf SM64LBuilder
-fin
+fi
 else
 if [ $1 == "--remove-repo" ]; then
 cd ~/SM64LBuilder/repos

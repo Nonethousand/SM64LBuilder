@@ -18,6 +18,6 @@ chmod 755 builder.sh
 # For testing
 First open the Terminal. Run this command:
 ```
-git clone --single-branch --branch tester https://github.com/HiImBlahh/SM64LBuilder.git
+git clone --single-branch --branch Tester https://github.com/HiImBlahh/SM64LBuilder.git
 ```
 You now hve the tester branch for testing. This branch is mainly for testing out new shellscripts.

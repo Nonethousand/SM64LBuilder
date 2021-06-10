@@ -25,6 +25,11 @@ chmod 755 builder.sh
 ```
 ./builder --library
 ```
+To build with a built in repo script just type in the script name after
+```
+./builder.sh
+```
+but remove the .sh
 # For testing
 First open the Terminal. Run this command:
 ```

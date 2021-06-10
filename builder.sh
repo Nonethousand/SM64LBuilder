@@ -3,7 +3,7 @@ echo "ARE YOU SURE YOU WANT TO REMOVE SM64LBUILDER? THIS ACTION CANNOT BE UNDONE
 read answer
 if [ $answer == "y" ]; then
 echo "Removing SM64LBuilder... Bye..."
-cd
+cd ~
 rm -rf SM64LBuilder
 fi
 else

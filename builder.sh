@@ -13,8 +13,7 @@ if [ -d $2 ]; then
 rm -rf $2
 else
 echo $2 "is not a directory!"
-fin
-fin
+fi
 else
 if [ $1 == "--help" ]; then
 echo "Commands: --help = see this help message, --library = see the built in repos, --custom-repo = build with a custom repo, --remove-builder = remove SM64LBuilder, --remove-repo = remove a repo"

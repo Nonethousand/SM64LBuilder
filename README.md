@@ -46,6 +46,7 @@ You now hve the tester branch for testing. This branch is mainly for testing out
 ```
 ./builder.sh --remove-builder
 ```
+# Screenshots
 
 
 ![Screenshot 2021-06-10 2 54 32 PM](https://user-images.githubusercontent.com/78574005/121602274-e9b72400-c9fb-11eb-80e7-bb1fc4964a55.png)

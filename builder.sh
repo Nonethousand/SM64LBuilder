@@ -1,4 +1,4 @@
-if [ "$1 -eq custom_repo" ]; then
+if [ "$1 -eq --custom-repo" ]; then
 cd repos
 git clone $2
   if [ -e ~/baserom.us.z64 ]; then

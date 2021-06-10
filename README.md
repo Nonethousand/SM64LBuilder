@@ -15,6 +15,10 @@ chmod 755 builder.sh
 ```
 ./builder.sh --custom-repo <github link goes here> <repo folder name goes here>
 ```
+# How to see the built in repo scripts
+```
+./builder.sh --library
+```
 # For testing
 First open the Terminal. Run this command:
 ```

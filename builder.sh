@@ -11,7 +11,6 @@ else
 cd ~/SM64LBuilder/repos
 rm $3
 echo "baserom.us.z64 not found in home directory. Please put your baserom into your home directory."
-fi
 else
 cd scripts
 if [ -e $1.sh ]; then
@@ -22,4 +21,4 @@ else
 echo $1 "not found!"
 fi
 fi
-done
+fi

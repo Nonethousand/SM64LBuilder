@@ -1,3 +1,6 @@
+if [ $1 == "--help" ]; then
+echo "Commands: --help = see this help message, --library = see the built in repos, --custom-repo = build with a custom repo"
+else
 if [ $1 == "--library" ]; then
 cd ~/SM64LBuilder/scripts
 ls
@@ -24,9 +27,13 @@ echo $1 "found! Cloning the repo..."
 chmod 755 $1.sh
 sh $1.sh
 else
+if [ $1 == "" ]; then
+echo "No arguments specified. Run --help to see avialable arguments"
+else
 echo $1 "not found!"
 fi
 fi
 fi
-
+fi
+fi
 

@@ -1,4 +1,9 @@
-if [ "$1 -eq --custom-repo" ]; then
+if [ $1 == "--library" ]; then
+cd ~/SM64LBuilder/scripts
+ls
+cd ~/SM64LBuilder
+else
+if [ $1 == "--custom-repo" ]; then
 cd repos
 git clone $2
   if [ -e ~/baserom.us.z64 ]; then
@@ -20,6 +25,7 @@ chmod 755 $1.sh
 sh $1.sh
 else
 echo $1 "not found!"
+fi
 fi
 fi
 

@@ -1,8 +1,3 @@
-if [ "$1 -eq --library" ]; then
-cd ~/SM64LBuilder/scripts
-ls
-cd ~/SM64LBuilder
-fi
 if [ "$1 -eq --custom-repo" ]; then
 cd repos
 git clone $2

@@ -1,3 +1,20 @@
+if [ $1 == "--remove-builder" ]; then
+echo "ARE YOU SURE YOU WANT TO REMOVE SM64LBUILDER? THIS ACTION CANNOT BE UNDONE. [y/n]"
+read answer
+if [ $answer == "y" ]; then
+echo "Removing SM64LBuilder... Bye..."
+cd
+rm -rf SM64LBuilder
+fin
+else
+if [ $1 == "--remove-repo" ]; then
+cd ~/SM64LBuilder/repos
+if [ -d $2 ]; then
+rm -rf $2
+else
+echo $2 "is not a directory!"
+fin
+else
 if [ $1 == "--help" ]; then
 echo "Commands: --help = see this help message, --library = see the built in repos, --custom-repo = build with a custom repo"
 else
@@ -36,4 +53,5 @@ fi
 fi
 fi
 fi
-
+fi
+fi

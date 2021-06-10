@@ -1,7 +1,7 @@
 # SM64LBuilder
 SM64 Pc Port Builder for linux and Chromebook
 
-***NOT WORKING YET!!***
+***It's working!***
 
 # For Casual Use
 First open the Terminal. Run these commands:

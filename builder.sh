@@ -1,5 +1,5 @@
 if [ "$1 -eq --library" ]; then
-cd ~/SM64LBuilder/repos
+cd ~/SM64LBuilder/scripts
 ls
 cd ~/SM64LBuilder
 else

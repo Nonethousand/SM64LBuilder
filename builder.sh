@@ -2,7 +2,7 @@ if [ "$1 -eq --library" ]; then
 cd ~/SM64LBuilder/scripts
 ls
 cd ~/SM64LBuilder
-else
+fi
 if [ "$1 -eq --custom-repo" ]; then
 cd repos
 git clone $2
@@ -27,5 +27,5 @@ else
 echo $1 "not found!"
 fi
 fi
-fi
+
 

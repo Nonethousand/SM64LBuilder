@@ -1,7 +1,7 @@
 cd ~/SM64LBuilder/repos
 git clone https://github.com/sm64pc/sm64ex.git
-if [ -e ~/baserom.us.z64 ]; then
-cp ~/baserom.us.z64 sm64ex
+echo "Please select your baserom.us.z64."
+cp $(zenity --file-selection --file-filter='z64 ROMS (z64) | *.z64' --title="Select your baserom.us.z64 ROM") sm64ex
 cd sm64ex
 echo "Would you like patches? [y/n]"
 read answer

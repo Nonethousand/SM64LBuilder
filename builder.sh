@@ -40,8 +40,12 @@ git clone $2
     read number
     for i in {1..$number}; do echo "Enter your patch location" && read location && git apply $location; done
     fi
-  echo "Starting compilation of $3... (build flags and jobs are not available right now.) "
-  make
+  echo "Starting compilation of $3... (build flags are not available right now.) "
+ if [ $1 -- "--jobs" ]; then
+make $2
+else
+make
+fi
   echo $3 "compiled!"
   else
   cd ~/SM64LBuilder/repos

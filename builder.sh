@@ -40,12 +40,13 @@ echo "How many?"
 read number
 for i in {1..$number}; do echo "Chose a file" && git apply $(zenity --file-selection --file-filter='patch files (patch) | *.patch' --title="Select your patch file"); done
 fi
-  echo $3 "compiled!"
-  else
-  cd ~/SM64LBuilder/repos
-  rm $3
-  echo "baserom.us.z64 not found in home directory. Please put your baserom into your home directory."
-  fi
+echo "Starting compilation of $3... "
+if [ $1 -- "--jobs" ]; then
+make $(zenity --forms --title="Build Flags" --add-entry=Flags) $2
+else
+make $(zenity --forms --title="Build Flags" --add-entry=Flags)
+fi
+echo $3 "compiled!"
 else
 cd scripts
   if [ -e $1.sh ]; then

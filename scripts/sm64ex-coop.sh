@@ -3,6 +3,13 @@ git clone https://github.com/djoslin0/sm64ex-coop.git
 if [ -e ~/baserom.us.z64 ]; then
 cp ~/baserom.us.z64 sm64ex-coop
 cd sm64ex-coop
+echo "Would you like patches? [y/n]"
+read answer
+if [ $answer = "y" ]; then
+echo "How many?"
+read number
+for i in {1..$number}; do echo "Enter your patch location" && read location && git apply $location; done
+fi
 echo "Starting compilation of sm64ex-coop... (build flags and jobs are not available right now.) "
 make
 echo "sm64ex-coop compiled!"

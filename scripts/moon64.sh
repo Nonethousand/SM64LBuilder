@@ -3,6 +3,13 @@ git clone https://github.com/KiritoDv/Moon64.git
 if [ -e ~/baserom.us.z64 ]; then
 cp ~/baserom.us.z64 Moon64
 cd Moon64
+echo "Would you like patches? [y/n]"
+read answer
+if [ $answer = "y" ]; then
+echo "How many?"
+read number
+for i in {1..$number}; do echo "Enter your patch location" && read location && git apply $location; done
+fi
 echo "Starting compilation of Moon64... (build flags and jobs are not available right now.) "
 make
 echo "Moon64 compiled!"

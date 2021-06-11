@@ -2,7 +2,8 @@ if [ -e ~/SM64LBuilder/repos/temp ]; then
 rm ~/SM64LBuilder/repos/temp
 fi
 if [ $1 == "--remove-builder" ]; then
-echo "ARE YOU SURE YOU WANT TO REMOVE SM64LBUILDER? THIS ACTION CANNOT BE UNDONE. [y/n]"
+BLUE='\033[0;34m'
+echo -e "${BLUE}ARE YOU SURE YOU WANT TO REMOVE SM64LBUILDER? THIS ACTION CANNOT BE UNDONE. [y/n]"
 read answer
 if [ $answer == "y" ]; then
 echo "Removing SM64LBuilder... Bye..."

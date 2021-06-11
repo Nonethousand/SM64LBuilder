@@ -1,7 +1,7 @@
 cd ~/SM64LBuilder/repos
 git clone https://github.com/djoslin0/sm64ex-coop.git
-if [ -e ~/baserom.us.z64 ]; then
-cp ~/baserom.us.z64 sm64ex-coop
+echo "Please select your baserom.us.z64."
+cp $(zenity --file-selection --file-filter='z64 ROMS (z64) | *.z64' --title="Select your baserom.us.z64 ROM") sm64ex-coop
 cd sm64ex-coop
 echo "Would you like patches? [y/n]"
 read answer
@@ -17,8 +17,3 @@ else
 make
 fi
 echo "sm64ex-coop compiled!"
-else
-cd ~/SM64LBuilder/repos
-rm sm64ex-coop
-echo "baserom.us.z64 not found in home directory. Please put your baserom into your home directory."
-fi

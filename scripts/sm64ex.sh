@@ -9,7 +9,7 @@ if [ $patches == "y" ]; then
 echo "How many?"
 read number
 for i in {1..$number}; do echo "Enter your patch location" && read location && git apply $location; done
-fin
+fi
 echo "Starting compilation of sm64ex... (build flags and jobs are not available right now.) "
 make
 echo "sm64ex compiled!"

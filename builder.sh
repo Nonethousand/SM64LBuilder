@@ -33,6 +33,13 @@ git clone $2
   if [ -e ~/baserom.us.z64 ]; then
   cp ~/baserom.us.z64 $3
   cd $3
+  echo "Would you like patches? [y/n]"
+  read answer
+    if [ $answer = "y" ]; then
+    echo "How many?"
+    read number
+    for i in {1..$number}; do echo "Enter your patch location" && read location && git apply $location; done
+    fi
   echo "Starting compilation of $3... (build flags and jobs are not available right now.) "
   make
   echo $3 "compiled!"
@@ -43,15 +50,19 @@ git clone $2
   fi
 else
 cd scripts
-if [ -e $1.sh ]; then
-echo $1 "found! Cloning the repo..."
-chmod 755 $1.sh
-sh $1.sh
-else
-if [ $1 == "" ]; then
-echo "No arguments specified. Run --help to see avialable arguments"
-else
-echo $1 "not found!"
+  if [ -e $1.sh ]; then
+  echo $1 "found! Cloning the repo..."
+  chmod 755 $1.sh
+  if [ $2 == "--jobs" ]; then
+  sh $1.sh $2 $3
+  else
+  sh $1.sh
+  fin
+  else
+    if [ $1 == "" ]; then
+    echo "No arguments specified. Run --help to see avialable arguments"
+    else
+    echo $1 "not found!"
 fi
 fi
 fi

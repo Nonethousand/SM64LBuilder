@@ -13,8 +13,8 @@ for i in {1..$number}; do echo "Chose a file" && git apply $(zenity --file-selec
 fi
 echo "Starting compilation of Render96ex... (build flags are not available right now.) "
 if [ $1 -- "--jobs" ]; then
-make $2
+make $(zenity --forms --title="Build Flags" --add-entry=Flags) $2
 else
-make
+make $(zenity --forms --title="Build Flags" --add-entry=Flags)
 fi
 echo "Render96ex compiled!"

@@ -30,21 +30,15 @@ else
 if [ $1 == "--custom-repo" ]; then
 cd repos
 git clone $2
-  if [ -e ~/baserom.us.z64 ]; then
-  cp ~/baserom.us.z64 $3
-  cd $3
-  echo "Would you like patches? [y/n]"
-  read answer
-    if [ $answer = "y" ]; then
-    echo "How many?"
-    read number
-    for i in {1..$number}; do echo "Enter your patch location" && read location && git apply $location; done
-    fi
-  echo "Starting compilation of $3... (build flags are not available right now.) "
- if [ $1 -- "--jobs" ]; then
-make $2
-else
-make
+ echo "Please select your baserom.us.z64."
+cp $(zenity --file-selection --file-filter='z64 ROMS (z64) | *.z64' --title="Select your baserom.us.z64 ROM") $3
+cd $3
+echo "Would you like patches? [y/n]"
+read answer
+if [ $answer = "y" ]; then
+echo "How many?"
+read number
+for i in {1..$number}; do echo "Chose a file" && git apply $(zenity --file-selection --file-filter='patch files (patch) | *.patch' --title="Select your patch file"); done
 fi
   echo $3 "compiled!"
   else

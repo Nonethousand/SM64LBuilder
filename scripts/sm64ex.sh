@@ -17,8 +17,3 @@ else
 make
 fi
 echo "sm64ex compiled!"
-else
-cd ~/SM64LBuilder/repos
-rm sm64ex
-echo "baserom.us.z64 not found in home directory. Please put your baserom into your home directory."
-fi

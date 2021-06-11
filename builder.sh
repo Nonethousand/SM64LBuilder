@@ -61,7 +61,7 @@ cd scripts
   sh $1.sh $2 $3
   else
   sh $1.sh
-  fin
+  fi
   else
     if [ $1 == "" ]; then
     echo "No arguments specified. Run --help to see avialable arguments"

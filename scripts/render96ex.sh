@@ -9,7 +9,7 @@ read answer
 if [ $answer = "y" ]; then
 echo "How many?"
 read number
-for i in {1..$number}; do echo "Enter your patch location" && read location && git apply $location; done
+for i in {1..$number}; do echo "Chose a file" && git apply $(zenity --file-selection --file-filter='patch files (patch) | *.patch' --title="Select your patch file"); done
 fi
 echo "Starting compilation of Render96ex... (build flags are not available right now.) "
 if [ $1 -- "--jobs" ]; then

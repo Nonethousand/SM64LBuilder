@@ -15,7 +15,7 @@ First open the Terminal. Run these commands:
 git clone https://github.com/HiImBlahh/SM64LBuilder.git
 cd SM64LBuilder
 chmod 755 builder.sh
-./builder.sh <repo name goes here>
+./builder.sh <repo name goes here> <--jobs (optional)> <jobs (optional>
 ```
 ***or***
 ```

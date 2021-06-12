@@ -2,7 +2,7 @@ if [ -e ~/SM64LBuilder/repos/temp ]; then
 rm ~/SM64LBuilder/repos/temp
 fi
 if [ $1 == "--update" ]; then
-cp repos ~
+cp ~/SM64LBuilder/repos ~
 BLUE='\033[0;34m'
 echo -e "${BLUE}Clone the github again, remove the repos folder inside the new SM64LBuilder folder, and then move ~/repos to ~/SM64LBuilder"
 cd ~

@@ -12,7 +12,7 @@ if [ $1 == "--replace" ]; then
 echo "Replace what?"
 rm -rf $(zenity --file-selection --directory)
 echo "What to replace it with?"
-cp $(zenity --file-selection --directory) ~/SM64LBuilder
+cp -r $(zenity --file-selection --directory) ~/SM64LBuilder
 else
 if [ $1 == "--remove-builder" ]; then
 BLUE='\033[0;34m'

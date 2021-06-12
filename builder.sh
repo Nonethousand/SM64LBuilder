@@ -8,6 +8,14 @@ echo -e "${BLUE}Clone the github again, remove the repos folder inside the new S
 cd ~
 rm -rf SM64LBuilder
 else
+if [ $1 == "--replace" ]; then
+echo "Replace what?"
+read what
+echo "Enter the directory of the new $what "
+read directory
+rm -rf $what
+cp $directory ~/SM64LBuilder
+else
 if [ $1 == "--remove-builder" ]; then
 BLUE='\033[0;34m'
 echo -e "${BLUE}ARE YOU SURE YOU WANT TO REMOVE SM64LBUILDER? THIS ACTION CANNOT BE UNDONE. [y/n]"
@@ -69,6 +77,7 @@ cd scripts
     echo "No arguments specified. Run --help to see avialable arguments"
     else
     echo $1 "not found!"
+fi
 fi
 fi
 fi

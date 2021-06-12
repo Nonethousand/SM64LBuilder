@@ -1,3 +1,14 @@
+if [ $1 == "--update" ]; then
+find . -depth -type d -name SM64LBuilder -execdir mv {} SM64LBuilderOld \;
+cd
+git clone https://github.com/HiImBlahh/SM64LBuilder.git
+cd SM64LBuilder
+chmod 755 builder.sh
+rm -rf repos
+cp ~/SM64LBuilderOld/repos ~/SM64LBuilder
+cd
+rm -rf SM64LBuilderOld
+else
 if [ -e ~/SM64LBuilder/repos/temp ]; then
 rm ~/SM64LBuilder/repos/temp
 fi
@@ -62,6 +73,7 @@ cd scripts
     echo "No arguments specified. Run --help to see avialable arguments"
     else
     echo $1 "not found!"
+fi
 fi
 fi
 fi

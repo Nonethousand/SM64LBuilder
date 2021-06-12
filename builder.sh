@@ -4,7 +4,7 @@ fi
 if [ $1 == "--update" ]; then
 cp -r repos ~
 BLUE='\033[0;34m'
-echo -e "${BLUE}Clone the github again, remove the repos folder inside the new SM64LBuilder folder, and then move ~/repos to ~/SM64LBuilder"
+echo -e "${BLUE}Clone the github again and then run ./builder.sh --replace. First select the repos folder in ~/SM64LBuilder and then select ~/repos"
 cd ~
 rm -rf SM64LBuilder
 else
@@ -33,7 +33,7 @@ echo $2 "is not a directory!"
 fi
 else
 if [ $1 == "--help" ]; then
-echo "Commands: --help = see this help message, --library = see the built in repos, --custom-repo = build with a custom repo, --remove-builder = remove SM64LBuilder, --remove-repo = remove a repo, --jobs = build with jobs, --update = get instructions on how to update"
+echo "Commands: --help = see this help message, --library = see the built in repos, --custom-repo = build with a custom repo, --remove-builder = remove SM64LBuilder, --remove-repo = remove a repo, --jobs = build with jobs, --update = get instructions on how to update, --replace = replace 2 folders"
 else
 if [ $1 == "--library" ]; then
 cd ~/SM64LBuilder/scripts

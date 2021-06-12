@@ -1,13 +1,16 @@
 if [ $1 == "--update" ]; then
-find . -depth -type d -name SM64LBuilder -execdir mv {} SM64LBuilderOld \;
+cd
+cp ~/SM64LBuilder/repos ~
+cd SM64LBuilder
+rm -rf repos
+rm -rf scripts
+rm README.md
+rm builder.sh
 cd
 git clone https://github.com/HiImBlahh/SM64LBuilder.git
 cd SM64LBuilder
 chmod 755 builder.sh
-rm -rf repos
-cp ~/SM64LBuilderOld/repos ~/SM64LBuilder
-cd
-rm -rf SM64LBuilderOld
+cp ~/repos ~/SM64LBuilder
 else
 if [ -e ~/SM64LBuilder/repos/temp ]; then
 rm ~/SM64LBuilder/repos/temp

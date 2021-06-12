@@ -27,7 +27,7 @@ echo $2 "is not a directory!"
 fi
 else
 if [ $1 == "--help" ]; then
-echo "Commands: --help = see this help message, --library = see the built in repos, --custom-repo = build with a custom repo, --remove-builder = remove SM64LBuilder, --remove-repo = remove a repo"
+echo "Commands: --help = see this help message, --library = see the built in repos, --custom-repo = build with a custom repo, --remove-builder = remove SM64LBuilder, --remove-repo = remove a repo, --jobs = build with jobs, --update = get instructions on how to update"
 else
 if [ $1 == "--library" ]; then
 cd ~/SM64LBuilder/scripts

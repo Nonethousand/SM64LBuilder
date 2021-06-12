@@ -10,11 +10,9 @@ rm -rf SM64LBuilder
 else
 if [ $1 == "--replace" ]; then
 echo "Replace what?"
-read what
-echo "Enter the directory of the new $what "
-read directory
-rm -rf $what
-cp $directory ~/SM64LBuilder
+rm -rf $(zenity --file-selection --directory)
+echo "What to replace it with?"
+cp $(zenity --file-selection --directory) ~/SM64LBuilder
 else
 if [ $1 == "--remove-builder" ]; then
 BLUE='\033[0;34m'

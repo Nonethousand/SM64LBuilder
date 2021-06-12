@@ -1,20 +1,13 @@
-if [ $1 == "--update" ]; then
-cd
-cp ~/SM64LBuilder/repos ~
-cd SM64LBuilder
-rm -rf repos
-rm -rf scripts
-rm README.md
-rm builder.sh
-cd
-git clone https://github.com/HiImBlahh/SM64LBuilder.git
-cd SM64LBuilder
-chmod 755 builder.sh
-cp ~/repos ~/SM64LBuilder
-else
 if [ -e ~/SM64LBuilder/repos/temp ]; then
 rm ~/SM64LBuilder/repos/temp
 fi
+if [ $1 == "--update" ]; then
+cp repos ~
+BLUE='\033[0;34m'
+echo -e "${BLUE}Clone the github again, remove the repos folder inside the new SM64LBuilder folder, and then move ~/repos to ~/SM64LBuilder"
+cd ~
+rm -rf SM64LBuilder
+else
 if [ $1 == "--remove-builder" ]; then
 BLUE='\033[0;34m'
 echo -e "${BLUE}ARE YOU SURE YOU WANT TO REMOVE SM64LBUILDER? THIS ACTION CANNOT BE UNDONE. [y/n]"

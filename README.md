@@ -26,7 +26,7 @@ First open the Terminal. Run this command:
 ```
 git clone --single-branch --branch Tester https://github.com/HiImBlahh/SM64LBuilder.git
 ```
-You now hve the tester branch for testing. This branch is mainly for testing out new shellscripts.
+You now have the tester branch for testing. This branch is mainly for testing out new shellscripts.
 
 # How to remove a repo
 ```

@@ -15,11 +15,11 @@ First open the Terminal. Run these commands:
 git clone https://github.com/HiImBlahh/SM64LBuilder.git
 cd SM64LBuilder
 chmod 755 builder.sh
-./builder.sh
+./builder.sh <--jobs (optional)> <-j[number] (optional) {make sure to put --jobs and this together}>
 ```
 ***or***
 ```
-./builder.sh --custom-repo <github link goes here> <repo folder name goes here>
+./builder.sh --custom-repo <github link goes here> <repo folder name goes here> <--jobs (optional)> <-j[number] (optional) {make sure to put --jobs and this together}>
 ```
 # For testing
 First open the Terminal. Run this command:

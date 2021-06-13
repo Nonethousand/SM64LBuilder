@@ -15,21 +15,12 @@ First open the Terminal. Run these commands:
 git clone https://github.com/HiImBlahh/SM64LBuilder.git
 cd SM64LBuilder
 chmod 755 builder.sh
-./builder.sh <--jobs (optional)> <jobs (optional>
+./builder.sh
 ```
 ***or***
 ```
 ./builder.sh --custom-repo <github link goes here> <repo folder name goes here>
 ```
-# How to see the built in repo scripts
-```
-./builder --library
-```
-To build with a built in repo script just type in the script name after
-```
-./builder.sh
-```
-but remove the .sh
 # For testing
 First open the Terminal. Run this command:
 ```

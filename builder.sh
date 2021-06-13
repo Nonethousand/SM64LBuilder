@@ -57,6 +57,8 @@ fi
 echo $3 "compiled!"
 else
 REPO=$(zenity --list --column Repos sm64ex sm64ex-coop sm64ex-alo sm64 render96ex moon64)
+echo -e "You selected $REPO"
+cd scripts
   chmod 755 $REPO.sh
   if [ $1 == "--jobs" ]; then
   sh $REPO.sh $1 $2

@@ -4,7 +4,7 @@ fi
 if [ $1 == "--update" ]; then
 cp -r repos ~
 BLUE='\033[0;34m'
-echo -e "${BLUE}Clone the github again and then run ./builder.sh --replace. First select the repos folder in ~/SM64LBuilder and then select ~/repos"
+echo -e "${BLUE}Clone the github again and then run ./builder.sh --replace. First select the repos folder in ~/SM64LBuilder and then select ~/repos\n"
 cd ~
 rm -rf SM64LBuilder
 else

@@ -33,7 +33,7 @@ echo $2 "is not a directory!"
 fi
 else
 if [ $1 == "--help" ]; then
-echo "Commands: --help = see this help message, --library = see the built in repos, --custom-repo = build with a custom repo, --remove-builder = remove SM64LBuilder, --remove-repo = remove a repo, --jobs = build with jobs, --update = get instructions on how to update, --replace = replace 2 folders"
+printf "Commands: --help = see this help message\n --library = see the built in repos\n --custom-repo = build with a custom repo\n --remove-builder = remove SM64LBuilder\n --remove-repo = remove a repo\n --jobs = build with jobs\n --update = get instructions on how to update\n --replace = replace 2 folders"
 else
 if [ $1 == "--custom-repo" ]; then
 cd repos

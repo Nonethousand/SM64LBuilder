@@ -61,22 +61,13 @@ make $(zenity --forms --title="Build Flags" --add-entry=Flags)
 fi
 echo $3 "compiled!"
 else
-cd scripts
-  if [ -e $1.sh ]; then
-  echo $1 "found! Cloning the repo..."
-  chmod 755 $1.sh
-  if [ $2 == "--jobs" ]; then
-  sh $1.sh $2 $3
+REPO=$(zenity --list --column Repos sm64ex sm64ex-coop sm64ex-alo sm64 render96ex moon64)
+  chmod 755 $REPO.sh
+  if [ $1 == "--jobs" ]; then
+  sh $REPO.sh $1 $2
   else
-  sh $1.sh
+  sh $REP0.sh
   fi
-  else
-    if [ $1 == "" ]; then
-    echo "No arguments specified. Run --help to see avialable arguments"
-    else
-    echo $1 "not found!"
-fi
-fi
 fi
 fi
 fi

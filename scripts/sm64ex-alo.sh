@@ -3,6 +3,10 @@ https://github.com/AloXado320/sm64ex-alo.git
 echo "Please select your baserom.us.z64."
 cp $(zenity --file-selection --file-filter='z64 ROMS (z64) | *.z64' --title="Select your baserom.us.z64 ROM") sm64ex-alo
 cd sm64ex-alo
+echo "Chose a model pack"
+PACK=$(zenity --list --column Packs none render96modelpack)
+chmod 755 ~/SM64LBuilder/model-packs/$PACK.sh
+sh ~/SM64LBuilder/model-packs/$PACK.sh sm64ex-alo
 echo "Would you like patches? [y/n]"
 read answer
 if [ $answer = "y" ]; then

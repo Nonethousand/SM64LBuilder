@@ -4,6 +4,10 @@ git clone --single-branch --branch alpha https://github.com/Render96/Render96ex.
 echo "Please select your baserom.us.z64."
 cp $(zenity --file-selection --file-filter='z64 ROMS (z64) | *.z64' --title="Select your baserom.us.z64 ROM") Render96ex
 cd Render96ex
+echo "Chose a model pack"
+PACK=$(zenity --list --column Packs none render96modelpack)
+chmod 755 ~/SM64LBuilder/model-packs/$PACK.sh
+sh ~/SM64LBuilder/model-packs/$PACK.sh Render96ex
 echo "Would you like patches? [y/n]"
 read answer
 if [ $answer = "y" ]; then

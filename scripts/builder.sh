@@ -7,11 +7,11 @@ cp -r repos ~
 BLUE='\033[0;34m'
 echo -e "${BLUE}Clone the github again and then run ./builder.sh --replace. First select the repos folder in ~/SM64LBuilder and then select ~/repos\n"
 cd ~
-rm -rf SM64LBuilder
+rm -rf {SM64LBuilder:?}
 else
 if [ $1 == "4" ]; then
 echo "Replace what?"
-rm -rf $(zenity --file-selection --directory)
+rm -rf {$(zenity --file-selection --directory):?}
 echo "What to replace it with?"
 cp -r $(zenity --file-selection --directory) ~/SM64LBuilder
 else
@@ -22,13 +22,13 @@ read answer
 if [ $answer == "y" ]; then
 echo "Removing SM64LBuilder... Bye..."
 cd ~
-rm -rf SM64LBuilder
+rm -rf {SM64LBuilder:?}
 fi
 else
 if [ $1 == "3" ]; then
 cd ~/SM64LBuilder/repos
 echo "Select a repo to remove."
-rm -rf $(zenity --list --column Repos $(ls))
+rm -rf {$(zenity --list --column Repos $(ls)):?}
 else
   if [ $1 == "8" ]; then
   cd ~/SM64LBuilder/scripts

@@ -3,6 +3,8 @@ SM64 Pc Port Builder for Linux and Chromebook
 
 Only 6 built in repo scripts so far. Will add more soon.
 
+No more releases will be published. Run the commands below to get the SM64LBuilder scripts.
+
 # For Casual Use
 First open the Terminal. Run these commands:
 ```

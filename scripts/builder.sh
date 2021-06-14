@@ -22,7 +22,7 @@ read answer
 if [ $answer == "y" ]; then
 echo "Removing SM64LBuilder... Bye..."
 cd ~
-rm -rf SM64LBuilder
+rm -r SM64LBuilder
 fi
 else
 if [ $1 == "3" ]; then

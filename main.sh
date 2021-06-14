@@ -11,7 +11,7 @@ OPTIONS=(1 "Build"
          2 "Build with a custom repo"
          3 "Remove a repo"
          4 "Replace 2 folders"
-         5 "Remove SM64Builder"
+         5 "Remove SM64LBuilder"
          6 "Update SM64LBuilder"
          7 "Create a new built in repo"
          8 "Remove a script")

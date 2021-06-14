@@ -1,6 +1,7 @@
-if [ -e ~/SM64LBuilder/repos/temp ]; then
-rm ~/SM64LBuilder/repos/temp
-fi
+if [ $1 == "--new-script" ]; then
+  chmod 755 ~/SM64LBuilder/scripts/create-new-repo.sh
+  sh ~/SM64LBuilder/scripts/create-new-repo.sh
+else
 if [ $1 == "--update" ]; then
 cp -r repos ~
 BLUE='\033[0;34m'
@@ -33,7 +34,7 @@ echo $2 "is not a directory!"
 fi
 else
 if [ $1 == "--help" ]; then
-printf "Commands: --help = see this help message\n --library = see the built in repos\n --custom-repo = build with a custom repo\n --remove-builder = remove SM64LBuilder\n --remove-repo = remove a repo\n --jobs = build with jobs\n --update = get instructions on how to update\n --replace = replace 2 folders"
+printf "Commands: --help = see this help message\n --library = see the built in repos\n --custom-repo = build with a custom repo\n --remove-builder = remove SM64LBuilder\n --remove-repo = remove a repo\n --jobs = build with jobs\n --update = get instructions on how to update\n --replace = replace 2 folders\n --new-script = make a built in repo to build"
 else
 if [ $1 == "--custom-repo" ]; then
 cd repos
@@ -66,6 +67,7 @@ cd ~/SM64LBuilder/scripts
   else
   sh $REPO.sh
   fi
+fi
 fi
 fi
 fi

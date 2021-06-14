@@ -2,7 +2,7 @@
 
 HEIGHT=15
 WIDTH=40
-CHOICE_HEIGHT=7
+CHOICE_HEIGHT=8
 BACKTITLE="SM64LBuilder"
 TITLE="What to do?"
 MENU="Choose one of the following options:"

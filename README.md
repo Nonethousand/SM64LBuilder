@@ -1,42 +1,24 @@
 # SM64LBuilder
 SM64 Pc Port Builder for Linux and Chromebook
 
-Only 5 built in repo scripts so far. Will add more soon.
-
-Run
-```
-./builder --help
-```
-for help.
+Only 6 built in repo scripts so far. Will add more soon.
 
 # For Casual Use
 First open the Terminal. Run these commands:
 ```
 git clone https://github.com/HiImBlahh/SM64LBuilder.git
 cd SM64LBuilder
-chmod 755 builder.sh
-./builder.sh <--jobs (optional)> <-j[number] (optional) {make sure to put --jobs and this together}>
+chmod 755 main.sh
+./main.sh
 ```
-***or***
-```
-./builder.sh --custom-repo <github link goes here> <repo folder name goes here> <--jobs (optional)> <-j[number] (optional) {make sure to put --jobs and this together}>
-```
+
 # For testing
 First open the Terminal. Run this command:
 ```
 git clone --single-branch --branch Tester https://github.com/HiImBlahh/SM64LBuilder.git
 ```
-You now have the tester branch for testing. This branch is mainly for testing out new shellscripts.
+You now have the tester branch for testing. This branch is mainly for testing out new shell scripts.
 
-# How to remove a repo
-```
-./builder.sh --remove-repo <repo name>
-```
-
-# How to remove the builder
-```
-./builder.sh --remove-builder
-```
 # Screenshots
 
 

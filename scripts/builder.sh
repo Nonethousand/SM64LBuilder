@@ -3,11 +3,8 @@ if [ $1 == "7" ]; then
   sh ~/SM64LBuilder/scripts/create-new-repo.sh
 else
 if [ $1 == "6" ]; then
-cp -r repos ~
-BLUE='\033[0;34m'
-echo -e "${BLUE}Clone the github again and then run ./builder.sh --replace. First select the repos folder in ~/SM64LBuilder and then select ~/repos\n"
-cd ~
-rm -rf {SM64LBuilder:?}
+  git fetch
+  git pull
 else
 if [ $1 == "4" ]; then
 echo "Replace what?"

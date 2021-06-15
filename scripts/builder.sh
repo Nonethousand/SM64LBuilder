@@ -4,7 +4,7 @@ if [ $1 == "9" ]; then
   FOLDER=$(zenity --list --column Repos $(ls))
   cd $FOLDER
   make clean
-  if [ -e baserom.us.z64 ] || [ -e baserom.jp.z64 ] || [ -e baserom.eu.z64 ] || [ -e baserom.sh.z64 ] then
+  if [ -e baserom.us.z64 ] || [ -e baserom.jp.z64 ] || [ -e baserom.eu.z64 ] || [ -e baserom.sh.z64 ]; then
     make clean
     IN=$(zenity --list --checklist --title "Build Flags" --text "Flags" --column "" --column "Options" True VERSION=us False VERSION=eu False VERSION=jp False VERSION=sh False TARGET_BITS=32 True TARGET_BITS=64 False TARGET_RPI=1 False TARGET_WEB=1 False WINDOWS_BUILD=1 False OSX_BUILD=1 WINDOWS_CONSOLE=1 DEBUG=1 BETTERCAMERA=1 NODRAWINGDISTANCE=1 TEXTURE_FIX=1 EXT_OPTIONS_MENU=1 EXTERNAL_DATA=1 DISCORDRPC=1 TEXTSAVES=1)
     make $(echo $IN | tr "|" " ")

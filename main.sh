@@ -2,7 +2,7 @@
 
 HEIGHT=16
 WIDTH=40
-CHOICE_HEIGHT=9
+CHOICE_HEIGHT=10
 BACKTITLE="SM64LBuilder"
 TITLE="What to do?"
 MENU="Choose one of the following options:"
@@ -15,7 +15,9 @@ OPTIONS=(1 "Build"
          6 "Update SM64LBuilder"
          7 "Create a new built in repo"
          8 "Remove a script"
-         9 "Exit")
+         9 "Rebuild a repo"
+         10 "Exit")
+
 
 CHOICE=$(dialog --clear \
                 --backtitle "$BACKTITLE" \
@@ -28,7 +30,7 @@ CHOICE=$(dialog --clear \
 clear
 chmod 755 ~/SM64LBuilder/scripts/builder.sh
 cd ~/SM64LBuilder/scripts
-if [ $CHOICE == "9" ]; then
+if [ $CHOICE == "10" ]; then
   echo "Goodbye!"
 else
 ./builder.sh $CHOICE

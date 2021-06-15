@@ -1,3 +1,20 @@
+if [ $1 == "9" ]; then
+  cd ~/SM64LBuilder/repos
+  echo "Select a repo to rebuild."
+  FOLDER=$(zenity --list --column Repos $(ls))
+  cd $FOLDER
+  make clean
+  if [ -e baserom.us.z64 ] || [ -e baserom.jp.z64 ] || [ -e baserom.eu.z64 ] || [ -e baserom.sh.z64 ] then
+    make clean
+    IN=$(zenity --list --checklist --title "Build Flags" --text "Flags" --column "" --column "Options" True VERSION=us False VERSION=eu False VERSION=jp False VERSION=sh False TARGET_BITS=32 True TARGET_BITS=64 False TARGET_RPI=1 False TARGET_WEB=1 False WINDOWS_BUILD=1 False OSX_BUILD=1 WINDOWS_CONSOLE=1 DEBUG=1 BETTERCAMERA=1 NODRAWINGDISTANCE=1 TEXTURE_FIX=1 EXT_OPTIONS_MENU=1 EXTERNAL_DATA=1 DISCORDRPC=1 TEXTSAVES=1)
+    make $(echo $IN | tr "|" " ")
+  else
+    make clean
+    echo "Please select your baserom."
+   cp $(zenity --file-selection --file-filter='z64 ROMS (z64) | *.z64' --title="Select your z64 ROM")
+   make
+  fi
+else
 if [ $1 == "7" ]; then
   chmod 755 ~/SM64LBuilder/scripts/create-new-repo.sh
   sh ~/SM64LBuilder/scripts/create-new-repo.sh
@@ -57,6 +74,7 @@ REPO=$(zenity --list --column Repos sm64ex sm64ex-coop sm64ex-alo sm64 render96e
 cd ~/SM64LBuilder/scripts
   chmod 755 $REPO.sh
   sh $REPO.sh
+fi
 fi
 fi
 fi

@@ -1,7 +1,7 @@
 cd ~/SM64LBuilder/repos
 git clone https://github.com/n64decomp/sm64.git
-echo "Please select your baserom.us.z64."
-cp $(zenity --file-selection --file-filter='z64 ROMS (z64) | *.z64' --title="Select your baserom.us.z64 ROM") sm64
+echo "Please select your baserom."
+cp $(zenity --file-selection --file-filter='z64 ROMS (z64) | *.z64' --title="Select your z64 ROM") sm64
 cd sm64
 echo "Would you like patches? [y/n]"
 read answer

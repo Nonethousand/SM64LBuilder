@@ -1,7 +1,7 @@
 cd ~/SM64LBuilder/repos
 git clone https://github.com/djoslin0/sm64ex-coop.git
-echo "Please select your baserom.us.z64."
-cp $(zenity --file-selection --file-filter='z64 ROMS (z64) | *.z64' --title="Select your baserom.us.z64 ROM") sm64ex-coop
+echo "Please select your baserom."
+cp $(zenity --file-selection --file-filter='z64 ROMS (z64) | *.z64' --title="Select your z64 ROM") sm64ex-coop
 cd sm64ex-coop
 echo "Would you like patches? [y/n]"
 read answer

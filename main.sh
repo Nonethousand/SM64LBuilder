@@ -39,5 +39,3 @@ if [ $CHOICE == "10" ]; then
 else
 ./builder.sh $CHOICE
 fi
-echo "Tip: You can run this builder again by running SM64LBuilder in the terminal."
-cd

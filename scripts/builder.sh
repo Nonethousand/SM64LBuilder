@@ -1,4 +1,24 @@
 if [ $1 == "9" ]; then
+  echo "Select a build to play."
+  cd ~/SM64LBuilder/repos
+  cd ~/SM64LBuilder/repos/$(zenity --list --column Repos $(ls))/build/us_pc/
+  if [ -e sm64.us.f3dex2e ]; then
+    ./sm64.us.f3dex2e
+  else
+    if [ -e sm64.jp.f3dex2e ]; then
+      ./sm64.jp.f3dex2e
+    else
+      if [ -e sm64.eu.f3dex2e ]; then
+        ./sm64.eu.f3dex2e
+      else
+        if [ -e sm64.sh.f3dex2e ]; then
+          ./sm64.sh.f3dex2e
+        fi
+      fi
+    fi
+  fi
+else
+if [ $1 == "8" ]; then
   cd ~/SM64LBuilder/repos
   echo "Select a repo to rebuild."
   FOLDER=$(zenity --list --column Repos $(ls))
@@ -15,21 +35,15 @@ if [ $1 == "9" ]; then
    make
   fi
 else
-if [ $1 == "7" ]; then
+if [ $1 == "6" ]; then
   chmod 755 ~/SM64LBuilder/scripts/create-new-repo.sh
   sh ~/SM64LBuilder/scripts/create-new-repo.sh
 else
-if [ $1 == "6" ]; then
+if [ $1 == "5" ]; then
   git fetch
   git pull
 else
 if [ $1 == "4" ]; then
-echo "Replace what?"
-rm -rf {$(zenity --file-selection --directory):?}
-echo "What to replace it with?"
-cp -r $(zenity --file-selection --directory) ~/SM64LBuilder
-else
-if [ $1 == "5" ]; then
 BLUE='\033[0;34m'
 echo -e "${BLUE}ARE YOU SURE YOU WANT TO REMOVE SM64LBUILDER? THIS ACTION CANNOT BE UNDONE. [y/n]"
 read answer
@@ -44,7 +58,7 @@ cd ~/SM64LBuilder/repos
 echo "Select a repo to remove."
 rm -rf {$(zenity --list --column Repos $(ls)):?}
 else
-  if [ $1 == "8" ]; then
+  if [ $1 == "7" ]; then
   cd ~/SM64LBuilder/scripts
   echo "Select a script to remove."
   rm $(zenity --list --column Scripts $(ls))

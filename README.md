@@ -13,6 +13,11 @@ cd SM64LBuilder
 chmod 755 main.sh
 ./main.sh
 ```
+If you have ran main.sh at least once all you have to do to run it again is to run
+```
+SM64LBuilder
+```
+in the terminal.
 
 # For testing
 First open the Terminal. Run this command:

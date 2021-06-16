@@ -1,3 +1,5 @@
+Just in case this README is not clear enough, here you go https://youtu.be/MTGOiqXoKFg
+
 # SM64LBuilder
 SM64 Pc Port Builder for Linux and Chromebook
 

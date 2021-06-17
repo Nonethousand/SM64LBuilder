@@ -18,3 +18,8 @@ else
 make $(echo $IN | tr "|" " ")
 fi
 echo "sm64ex-coop compiled!"
+
+
+
+
+#Maybe you should play sm64js lol

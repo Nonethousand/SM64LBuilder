@@ -1,7 +1,11 @@
+#Setting the text color
+BLUE='\033[0;34m'
+echo -e "${BLUE}"
 if [ $1 == "9" ]; then
   echo "Select a build to play."
   cd ~/SM64LBuilder/repos
   cd ~/SM64LBuilder/repos/$(zenity --list --column Repos $(ls))/build/us_pc/
+  #Checking for all versions of the executable
   if [ -e sm64.us.f3dex2e ]; then
     ./sm64.us.f3dex2e
   else
@@ -22,17 +26,20 @@ if [ $1 == "8" ]; then
   cd ~/SM64LBuilder/repos
   echo "Select a repo to rebuild."
   FOLDER=$(zenity --list --column Repos $(ls))
-  cd $FOLDER
   make clean
+  #Checking for all versions of the baserom
   if [ -e baserom.us.z64 ] || [ -e baserom.jp.z64 ] || [ -e baserom.eu.z64 ] || [ -e baserom.sh.z64 ]; then
     make clean
     IN=$(zenity --list --checklist --title "Build Flags" --text "Flags" --column "" --column "Options" True VERSION=us False VERSION=eu False VERSION=jp False VERSION=sh False TARGET_BITS=32 True TARGET_BITS=64 False TARGET_RPI=1 False TARGET_WEB=1 False WINDOWS_BUILD=1 False OSX_BUILD=1 WINDOWS_CONSOLE=1 DEBUG=1 BETTERCAMERA=1 NODRAWINGDISTANCE=1 TEXTURE_FIX=1 EXT_OPTIONS_MENU=1 EXTERNAL_DATA=1 DISCORDRPC=1 TEXTSAVES=1)
+    cd $FOLDER
     make $(echo $IN | tr "|" " ")
   else
     make clean
     echo "Please select your baserom."
-   cp $(zenity --file-selection --file-filter='z64 ROMS (z64) | *.z64' --title="Select your z64 ROM")
-   make
+   cp $(zenity --file-selection --file-filter='z64 ROMS (z64) | *.z64' --title="Select your z64 ROM") $FOLDER
+   IN=$(zenity --list --checklist --title "Build Flags" --text "Flags" --column "" --column "Options" True VERSION=us False VERSION=eu False VERSION=jp False VERSION=sh False TARGET_BITS=32 True TARGET_BITS=64 False TARGET_RPI=1 False TARGET_WEB=1 False WINDOWS_BUILD=1 False OSX_BUILD=1 WINDOWS_CONSOLE=1 DEBUG=1 BETTERCAMERA=1 NODRAWINGDISTANCE=1 TEXTURE_FIX=1 EXT_OPTIONS_MENU=1 EXTERNAL_DATA=1 DISCORDRPC=1 TEXTSAVES=1)
+   cd $FOLDER
+   make $(echo $IN | tr "|" " ")
   fi
 else
 if [ $1 == "6" ]; then
@@ -44,8 +51,8 @@ if [ $1 == "5" ]; then
   git pull
 else
 if [ $1 == "4" ]; then
-BLUE='\033[0;34m'
-echo -e "${BLUE}ARE YOU SURE YOU WANT TO REMOVE SM64LBUILDER? THIS ACTION CANNOT BE UNDONE. [y/n]"
+  #Confirmation message
+echo "ARE YOU SURE YOU WANT TO REMOVE SM64LBUILDER? THIS ACTION CANNOT BE UNDONE. [y/n]"
 read answer
 if [ $answer == "y" ]; then
 echo "Removing SM64LBuilder... Bye..."

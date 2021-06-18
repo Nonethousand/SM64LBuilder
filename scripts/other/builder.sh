@@ -43,8 +43,8 @@ if [ $1 == "8" ]; then
   fi
 else
 if [ $1 == "6" ]; then
-  chmod 755 ~/SM64LBuilder/scripts/create-new-repo.sh
-  sh ~/SM64LBuilder/scripts/create-new-repo.sh
+  chmod 755 ~/SM64LBuilder/scripts/other/create-new-repo.sh
+  sh ~/SM64LBuilder/scripts/other/create-new-repo.sh
 else
 if [ $1 == "5" ]; then
   git fetch
@@ -90,9 +90,9 @@ IN=$(zenity --list --checklist --title "Build Flags" --text "Flags" --column "" 
 make $(echo $IN | tr "|" " ")
 echo $FOLDER "compiled!"
 else
-REPO=$(zenity --list --column Repos sm64ex sm64ex-coop sm64ex-alo sm64 render96ex moon64)
+  cd ~/SM64LBUILDER/scripts
+REPO=$(zenity --list --column Repos $(ls -p1 | grep -v / | sed -e 's/\.sh$//'))
 /bin/echo -e "You selected $REPO"
-cd ~/SM64LBuilder/scripts
   chmod 755 $REPO.sh
 time sh $REPO.sh
 if (( $SECONDS > 3600 )) ; then

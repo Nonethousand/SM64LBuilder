@@ -102,8 +102,8 @@ CHOICE=$(dialog --clear \
                 2>&1 >/dev/tty)
 
 clear
-chmod 755 ~/SM64LBuilder/scripts/builder.sh
-cd ~/SM64LBuilder/scripts
+chmod 755 ~/SM64LBuilder/scripts/other/builder.sh
+cd ~/SM64LBuilder/scripts/other
 if [ $CHOICE == "12" ]; then
   echo "Goodbye!"
 else

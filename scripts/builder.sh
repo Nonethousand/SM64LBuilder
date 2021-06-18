@@ -57,13 +57,13 @@ read answer
 if [ $answer == "y" ]; then
 echo "Removing SM64LBuilder... Bye..."
 cd ~
-rm -r SM64LBuilder
+rm -rf SM64LBuilder
 fi
 else
 if [ $1 == "3" ]; then
 cd ~/SM64LBuilder/repos
 echo "Select a repo to remove."
-rm -r $(zenity --list --column Repos $(ls))
+rm -rf $(zenity --list --column Repos $(ls))
 else
   if [ $1 == "7" ]; then
   cd ~/SM64LBuilder/scripts
@@ -94,7 +94,19 @@ REPO=$(zenity --list --column Repos sm64ex sm64ex-coop sm64ex-alo sm64 render96e
 /bin/echo -e "You selected $REPO"
 cd ~/SM64LBuilder/scripts
   chmod 755 $REPO.sh
-  sh $REPO.sh
+time sh $REPO.sh
+if (( $SECONDS > 3600 )) ; then
+    let "hours=SECONDS/3600"
+    let "minutes=(SECONDS%3600)/60"
+    let "seconds=(SECONDS%3600)%60"
+    echo "Completed in $hours hour(s), $minutes minute(s) and $seconds second(s)"
+elif (( $SECONDS > 60 )) ; then
+    let "minutes=(SECONDS%3600)/60"
+    let "seconds=(SECONDS%3600)%60"
+    echo "Completed in $minutes minute(s) and $seconds second(s)"
+else
+    echo "Completed in $SECONDS seconds"
+fi
 fi
 fi
 fi

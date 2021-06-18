@@ -64,6 +64,7 @@ if [ -e ~/SM64LBuilder/.variables/.dev_mode ]; then
                                  if [ $CHOICE == "12" ]; then
                                    rm ~/SM64LBuilder/.variables/.created_alias
                                    rm ~/SM64LBuilder/.variables/.dev_mode
+                                   rm ~/SM64LBuilder/.variables/.baserompath
                                  else
                            ./builder.sh $CHOICE
                          fi
@@ -71,9 +72,9 @@ if [ -e ~/SM64LBuilder/.variables/.dev_mode ]; then
                              fi
                            fi
 else
-HEIGHT=18
+HEIGHT=19
 WIDTH=40
-CHOICE_HEIGHT=11
+CHOICE_HEIGHT=12
 BACKTITLE="SM64LBuilder"
 TITLE="What to do?"
 MENU="Choose one of the following options:"
@@ -88,7 +89,8 @@ OPTIONS=(1 "Build"
          8 "Rebuild a repo"
          9 "Run a game"
          10 "Enable dev mode"
-         11 "Exit")
+         11 "Misc Options"
+         12 "Exit")
 
 
 CHOICE=$(dialog --clear \
@@ -102,7 +104,7 @@ CHOICE=$(dialog --clear \
 clear
 chmod 755 ~/SM64LBuilder/scripts/builder.sh
 cd ~/SM64LBuilder/scripts
-if [ $CHOICE == "11" ]; then
+if [ $CHOICE == "12" ]; then
   echo "Goodbye!"
 else
   if [ $CHOICE == "10" ]; then
@@ -110,7 +112,34 @@ else
     cd ~/SM64LBuilder
     ./main.sh
   else
+    if [ $CHOICE == "11" ]; then
+      HEIGHT=9
+      WIDTH=40
+      CHOICE_HEIGHT=2
+      BACKTITLE="SM64LBuilder"
+      TITLE="What to do?"
+      MENU="Choose one of the following options:"
+
+      OPTIONS=(1 "Set a baserom path")
+
+
+      CHOICE=$(dialog --clear \
+                      --backtitle "$BACKTITLE" \
+                      --title "$TITLE" \
+                      --menu "$MENU" \
+                      $HEIGHT $WIDTH $CHOICE_HEIGHT \
+                      "${OPTIONS[@]}" \
+                      2>&1 >/dev/tty)
+
+      clear
+      if [ $CHOICE == "1" ]; then
+        echo $(zenity --file-selection --file-filter='z64 ROMS (z64) | *.z64' --title="Select your z64 ROM") >> ~/SM64LBuilder/.variables/.baserompath
+      else
+        echo
+      fi
+    else
 ./builder.sh $CHOICE
+fi
 fi
 fi
 fi

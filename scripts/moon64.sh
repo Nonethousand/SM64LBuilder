@@ -1,7 +1,11 @@
 cd ~/SM64LBuilder/repos
 git clone https://github.com/KiritoDv/Moon64.git
 echo "Please select your baserom."
+if [ -e ~/SM64LBuilder/.variables/.baserompath ]; then
+  cp $(cat ~/SM64LBuilder/.variables/.baserompath) Moon64
+else
 cp $(zenity --file-selection --file-filter='z64 ROMS (z64) | *.z64' --title="Select your z64 ROM") Moon64
+fi
 cd Moon64
 echo "Would you like patches? [y/n]"
 read answer

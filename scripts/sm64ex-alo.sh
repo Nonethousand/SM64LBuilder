@@ -1,7 +1,11 @@
 cd ~/SM64LBuilder/repos
 https://github.com/AloXado320/sm64ex-alo.git
 echo "Please select your baserom."
+if [ -e ~/SM64LBuilder/.variables/.baserompath ]; then
+  cp $(cat ~/SM64LBuilder/.variables/.baserompath) sm64ex-alo
+else
 cp $(zenity --file-selection --file-filter='z64 ROMS (z64) | *.z64' --title="Select your z64 ROM") sm64ex-alo
+fi
 cd sm64ex-alo
 echo "Would you like patches? [y/n]"
 read answer

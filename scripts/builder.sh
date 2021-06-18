@@ -57,13 +57,13 @@ read answer
 if [ $answer == "y" ]; then
 echo "Removing SM64LBuilder... Bye..."
 cd ~
-rm -rf SM64LBuilder
+rm -r SM64LBuilder
 fi
 else
 if [ $1 == "3" ]; then
 cd ~/SM64LBuilder/repos
 echo "Select a repo to remove."
-rm -rf $(zenity --list --column Repos $(ls))
+rm -r $(zenity --list --column Repos $(ls))
 else
   if [ $1 == "7" ]; then
   cd ~/SM64LBuilder/scripts

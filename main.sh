@@ -15,9 +15,9 @@ fi
 
 if [ -e ~/SM64LBuilder/.variables/.dev_mode ]; then
   #Dev mode, mainly for me
-  HEIGHT=20
+  HEIGHT=21
   WIDTH=40
-  CHOICE_HEIGHT=13
+  CHOICE_HEIGHT=14
   BACKTITLE="SM64LBuilder"
   TITLE="What to do?"
   MENU="No, this is not a clone of smlinux"
@@ -34,7 +34,8 @@ if [ -e ~/SM64LBuilder/.variables/.dev_mode ]; then
            10 "Disable dev mode"
            11 "Remove variables"
            12 "Delete files for git commits"
-           13 "Exit")
+           13 "Report bug"
+           14 "Exit")
 
 
            CHOICE=$(dialog --clear \
@@ -62,7 +63,7 @@ if [ -e ~/SM64LBuilder/.variables/.dev_mode ]; then
                                cd ~/SM64LBuilder
                                ./main.sh
                              else
-                               if [ $CHOICE == "13" ]; then
+                               if [ $CHOICE == "14" ]; then
                                  echo "Goodbye!"
                                else
                                  if [ $CHOICE == "12" ]; then
@@ -71,15 +72,19 @@ if [ -e ~/SM64LBuilder/.variables/.dev_mode ]; then
                                    rm ~/SM64LBuilder/.variables/.baserompath
                                    rm -rf ~/SM64LBuilder/music-SM64LBuilder
                                  else
+                                   if [ $CHOICE == "13" ]; then
+                                     xdg-open https://github.com/HiImBlahh/SM64LBuilder/issues/new?assignees=\&labels=bug\&template=bug_report.md\&title=
+                                   else
                            ./builder.sh $CHOICE
                          fi
                          fi
                              fi
                            fi
+                         fi
 else
-HEIGHT=19
+HEIGHT=20
 WIDTH=40
-CHOICE_HEIGHT=12
+CHOICE_HEIGHT=13
 BACKTITLE="SM64LBuilder"
 TITLE="What to do?"
 MENU="No, this is not a clone of smlinux"
@@ -95,7 +100,8 @@ OPTIONS=(1 "Build"
          9 "Run a game"
          10 "Enable dev mode"
          11 "Misc Options"
-         12 "Exit")
+         12 "Report bug"
+         13 "Exit")
 
 
 CHOICE=$(dialog --clear \
@@ -109,7 +115,7 @@ CHOICE=$(dialog --clear \
 clear
 chmod 755 ~/SM64LBuilder/scripts/other/builder.sh
 cd ~/SM64LBuilder/scripts/other
-if [ $CHOICE == "12" ]; then
+if [ $CHOICE == "13" ]; then
   echo "Goodbye!"
 else
   if [ $CHOICE == "10" ]; then
@@ -117,6 +123,9 @@ else
     cd ~/SM64LBuilder
     ./main.sh
   else
+    if [ $CHOICE == "12" ]; then
+      xdg-open https://github.com/HiImBlahh/SM64LBuilder/issues/new?assignees=\&labels=bug\&template=bug_report.md\&title=
+    else
     if [ $CHOICE == "11" ]; then
       HEIGHT=9
       WIDTH=40
@@ -149,6 +158,7 @@ else
       fi
       else
 ./builder.sh $CHOICE
+fi
 fi
 fi
 fi

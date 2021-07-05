@@ -3,10 +3,14 @@
 if [ -e ~/SM64LBuilder/.variables/.created_alias ]; then
   echo
 else
+  if [ $1 == "--no-alias" ]; then
+    echo
+  else
 cd
 echo -e "alias SM64LBuilder='. ~/SM64LBuilder/main.sh'" >> .bash_aliases
 echo "" >> ~/SM64LBuilder/.variables/.created_alias
 cd ~/SM64LBuilder
+fi
 fi
 
 if [ -e ~/SM64LBuilder/.variables/.dev_mode ]; then
@@ -16,7 +20,7 @@ if [ -e ~/SM64LBuilder/.variables/.dev_mode ]; then
   CHOICE_HEIGHT=13
   BACKTITLE="SM64LBuilder"
   TITLE="What to do?"
-  MENU="Choose one of the following options:"
+  MENU="No, this is not a clone of smlinux"
 
   OPTIONS=(1 "Build"
            2 "Build with a custom repo"
@@ -42,7 +46,7 @@ if [ -e ~/SM64LBuilder/.variables/.dev_mode ]; then
                            2>&1 >/dev/tty)
 
                            clear
-                           chmod 755 ~/SM64LBuilder/scripts/builder.sh
+                           chmod 755 ~/SM64LBuilder/scripts/other/builder.sh
                            cd ~/SM64LBuilder/scripts
                            if [ $CHOICE == "11" ]; then
                              cd ~/SM64LBuilder/.variables
@@ -65,6 +69,7 @@ if [ -e ~/SM64LBuilder/.variables/.dev_mode ]; then
                                    rm ~/SM64LBuilder/.variables/.created_alias
                                    rm ~/SM64LBuilder/.variables/.dev_mode
                                    rm ~/SM64LBuilder/.variables/.baserompath
+                                   rm -rf ~/SM64LBuilder/music-SM64LBuilder
                                  else
                            ./builder.sh $CHOICE
                          fi
@@ -77,7 +82,7 @@ WIDTH=40
 CHOICE_HEIGHT=12
 BACKTITLE="SM64LBuilder"
 TITLE="What to do?"
-MENU="Choose one of the following options:"
+MENU="No, this is not a clone of smlinux"
 
 OPTIONS=(1 "Build"
          2 "Build with a custom repo"
@@ -118,9 +123,10 @@ else
       CHOICE_HEIGHT=2
       BACKTITLE="SM64LBuilder"
       TITLE="What to do?"
-      MENU="Choose one of the following options:"
+      MENU="No, this is not a clone of smlinux"
 
-      OPTIONS=(1 "Set a baserom path")
+      OPTIONS=(1 "Set a baserom path"
+               2 "Install optional music and sfx")
 
 
       CHOICE=$(dialog --clear \
@@ -135,9 +141,13 @@ else
       if [ $CHOICE == "1" ]; then
         echo $(zenity --file-selection --file-filter='z64 ROMS (z64) | *.z64' --title="Select your z64 ROM") >> ~/SM64LBuilder/.variables/.baserompath
       else
-        echo
+        if [ $CHOICE == "2" ]; then
+          sudo apt-get install -y mpg123
+          cd ~/SM64LBuilder
+          git clone https://github.com/HiImBlahh/music-SM64LBuilder.git
+        fi
       fi
-    else
+      else
 ./builder.sh $CHOICE
 fi
 fi

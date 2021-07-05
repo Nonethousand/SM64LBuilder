@@ -71,7 +71,7 @@ else
   rm $(zenity --list --column Scripts $(ls))
   else
 if [ $1 == "2" ]; then
-cd repos
+cd ~/SM64LBuilder/repos
 LINK=$(zenity --forms --add-entry=Github-Clone-Link)
 FOLDER=$(zenity --forms --add-entry=repo-folder-name)
 git clone $LINK
@@ -90,22 +90,22 @@ IN=$(zenity --list --checklist --title "Build Flags" --text "Flags" --column "" 
 make $(echo $IN | tr "|" " ")
 echo $FOLDER "compiled!"
 else
-  cd ~/SM64LBUILDER/scripts
+cd ~/SM64LBuilder/scripts
 REPO=$(zenity --list --column Repos $(ls -p1 | grep -v / | sed -e 's/\.sh$//'))
 /bin/echo -e "You selected $REPO"
+if [ -d ~/SM64LBuilder/music-SM64LBuilder ]; then
+  mpg123 -q ~/SM64LBuilder/music-SM64LBuilder/MARIO_1A.mp3
   chmod 755 $REPO.sh
-time sh $REPO.sh
-if (( $SECONDS > 3600 )) ; then
-    let "hours=SECONDS/3600"
-    let "minutes=(SECONDS%3600)/60"
-    let "seconds=(SECONDS%3600)%60"
-    echo "Completed in $hours hour(s), $minutes minute(s) and $seconds second(s)"
-elif (( $SECONDS > 60 )) ; then
-    let "minutes=(SECONDS%3600)/60"
-    let "seconds=(SECONDS%3600)%60"
-    echo "Completed in $minutes minute(s) and $seconds second(s)"
+sh $REPO.sh & build_pid=$!
+chmod 755 ~/SM64LBuilder/scripts/other/playmusic.sh
+sh ~/SM64LBuilder/scripts/other/playmusic.sh & play_pid=$!
+wait $build_pid
+kill $play_pid
+mpg123 -q ~/SM64LBuilder/music-SM64LBuilder/event_star_collect.mp3
+echo "The music doesn't stop yet so you have to press ctrl+z"
 else
-    echo "Completed in $SECONDS seconds"
+chmod 755 $REPO.sh
+sh $REPO.sh
 fi
 fi
 fi

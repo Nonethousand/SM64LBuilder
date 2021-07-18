@@ -19,7 +19,7 @@ pacman -S dialog zenity base-devel glew sdl2 sdl2_gfx sdl2_image sdl2_mixer sdl2
 ```
 ### Apt/Ubuntu
 ```
-apt install build-essential libglew-dev libsdl2-dev 
+apt install build-essential libglew-dev libsdl2-dev mpg123 dialog zenity
 ```
 
 ## Clone & Run

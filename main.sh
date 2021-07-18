@@ -6,7 +6,14 @@ else
   if [ $1 == "--no-alias" ]; then
     echo
   else
-echo -e "alias SM64LBuilder='. ./main.sh'" >> .bash_aliases
+  SOURCE="${BASH_SOURCE[0]}"
+while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
+  DIR="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
+  SOURCE="$(readlink "$SOURCE")"
+  [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE" # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
+done
+DIR="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
+echo -e "alias SM64LBuilder='. $DIR/main.sh'" >> .bash_aliases
 echo "" >> ./.variables/.created_alias
 fi
 fi
@@ -152,7 +159,6 @@ else
         echo $(zenity --file-selection --file-filter='z64 ROMS (z64) | *.z64' --title="Select your z64 ROM") >> ./.variables/.baserompath
       else
         if [ $CHOICE == "2" ]; then
-          sudo apt-get install -y mpg123
           cd ../..
           git clone https://github.com/HiImBlahh/music-SM64LBuilder.git
           cd scripts/other

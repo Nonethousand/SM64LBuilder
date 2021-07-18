@@ -1,4 +1,4 @@
-sudo apt install build-essential libglew-dev libsdl2-dev
+#sudo apt install build-essential libglew-dev libsdl2-dev
 cd ../repos
 git clone --single-branch --branch alpha https://github.com/Render96/Render96ex.git
 echo "Please select your baserom."

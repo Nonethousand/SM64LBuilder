@@ -7,8 +7,23 @@ Only 6 built in repo scripts so far. Will add more soon.
 
 No more releases will be published. Run the commands below to get the SM64LBuilder scripts.
 
-# For Casual Use
-First open the Terminal. Run these commands:
+## Dependencies
+
+First get the depencies installed so you can use this:
+
+### Pacman/Arch
+```
+pacman -S dialog zenity base-devel glew sdl2 sdl2_gfx sdl2_image sdl2_mixer sdl2_net mpg123 capstone python git
+[YOUR AUR-HELPER] -S mips64-elf-binutils
+```
+### Apt/Ubuntu
+```
+apt install build-essential libglew-dev libsdl2-dev mpg123 dialog zenity git binutils-mips-linux-gnu python3 pkgconf libcapstone-dev
+```
+
+## Clone & Run
+
+Then open the Terminal. Run these commands:
 ```
 git clone https://github.com/HiImBlahh/SM64LBuilder.git
 cd SM64LBuilder

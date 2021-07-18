@@ -6,7 +6,6 @@ else
   if [ $1 == "--no-alias" ]; then
     echo
   else
-cd
 echo -e "alias SM64LBuilder='. ./main.sh'" >> .bash_aliases
 echo "" >> ./.variables/.created_alias
 fi

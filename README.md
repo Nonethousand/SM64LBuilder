@@ -15,11 +15,12 @@ First get the depencies installed so you can use this:
 
 ### Pacman/Arch
 ```
-pacman -S dialog zenity base-devel glew sdl2 sdl2_gfx sdl2_image sdl2_mixer sdl2_net mpg123
+pacman -S dialog zenity base-devel glew sdl2 sdl2_gfx sdl2_image sdl2_mixer sdl2_net mpg123 capstone python git
+[YOUR AUR-HELPER] -S mips64-elf-binutils
 ```
 ### Apt/Ubuntu
 ```
-apt install build-essential libglew-dev libsdl2-dev mpg123 dialog zenity
+apt install build-essential libglew-dev libsdl2-dev mpg123 dialog zenity git binutils-mips-linux-gnu python3 pkgconf libcapstone-dev
 ```
 
 ## Clone & Run

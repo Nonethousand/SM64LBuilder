@@ -122,6 +122,7 @@ else
     echo "" >> ./.variables/.dev_mode
     cd ../..
     ./main.sh
+    cd ./scripts/other
   else
     if [ $CHOICE == "12" ]; then
       xdg-open https://github.com/HiImBlahh/SM64LBuilder/issues/new?assignees=\&labels=bug\&template=bug_report.md\&title=
@@ -154,6 +155,7 @@ else
           sudo apt-get install -y mpg123
           cd ../..
           git clone https://github.com/HiImBlahh/music-SM64LBuilder.git
+          cd ./scripts/other
         fi
       fi
       else

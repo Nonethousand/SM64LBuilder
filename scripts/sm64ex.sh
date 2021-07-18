@@ -1,8 +1,8 @@
-cd ~/SM64LBuilder/repos
+cd ../repos
 git clone https://github.com/sm64pc/sm64ex.git
 echo "Please select your baserom"
-if [ -e ~/SM64LBuilder/.variables/.baserompath ]; then
-  cp $(cat ~/SM64LBuilder/.variables/.baserompath) sm64ex
+if [ -e ../.variables/.baserompath ]; then
+  cp $(cat ../.variables/.baserompath) sm64ex
 else
 cp $(zenity --file-selection --file-filter='z64 ROMS (z64) | *.z64' --title="Select your z64 ROM") sm64ex
 fi

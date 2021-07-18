@@ -9,20 +9,20 @@ No more releases will be published. Run the commands below to get the SM64LBuild
 
 # For Casual Use
 
-### Dependencies
+## Dependencies
 
 First get the depencies installed so you can use this:
 
-Pacman/Arch
+### Pacman/Arch
 ```
-pacman -S dialog zenity base-devel glew sdl2 sdl2_gfx sdl2_image sdl2_mixer sdl2_net
+pacman -S dialog zenity base-devel glew sdl2 sdl2_gfx sdl2_image sdl2_mixer sdl2_net mpg123
 ```
-Apt/Ubuntu
+### Apt/Ubuntu
 ```
 apt install build-essential libglew-dev libsdl2-dev 
 ```
 
-### Clone & Run
+## Clone & Run
 
 Then open the Terminal. Run these commands:
 ```

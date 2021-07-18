@@ -72,6 +72,7 @@ if [ -e ./.variables/.dev_mode ]; then
                              else
                                if [ $CHOICE == "14" ]; then
                                  echo "Goodbye!"
+                                 exit
                                else
                                  if [ $CHOICE == "12" ]; then
                                    rm ./.variables/.created_alias
@@ -124,6 +125,7 @@ chmod 755 ./scripts/other/builder.sh
 cd scripts/other/
 if [ $CHOICE == "13" ]; then
   echo "Goodbye!"
+  exit
 else
   if [ $CHOICE == "10" ]; then
     echo "" >> ./.variables/.dev_mode

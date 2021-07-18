@@ -48,9 +48,9 @@ if [ -e ./.variables/.dev_mode ]; then
                            chmod 755 ./scripts/other/builder.sh
                            cd scripts
                            if [ $CHOICE == "11" ]; then
-                             cd .variables
+                             cd ../.variables
                              REMOVE=$(zenity --list --column variables $(ls -A))
-                             cd ../..
+                             cd ../scripts
                              if [ $REMOVE == "temp" ]; then
                              echo "You can't remove that!"
                            else
@@ -61,6 +61,7 @@ if [ -e ./.variables/.dev_mode ]; then
                                rm ./.variables/.dev_mode
                                cd ..
                                ./main.sh
+                               cd scripts
                              else
                                if [ $CHOICE == "14" ]; then
                                  echo "Goodbye!"
@@ -74,7 +75,7 @@ if [ -e ./.variables/.dev_mode ]; then
                                    if [ $CHOICE == "13" ]; then
                                      xdg-open https://github.com/HiImBlahh/SM64LBuilder/issues/new?assignees=\&labels=bug\&template=bug_report.md\&title=
                                    else
-                           ./builder.sh $CHOICE
+                           ./other/builder.sh $CHOICE
                          fi
                          fi
                              fi

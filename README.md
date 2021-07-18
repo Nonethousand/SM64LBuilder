@@ -7,8 +7,6 @@ Only 6 built in repo scripts so far. Will add more soon.
 
 No more releases will be published. Run the commands below to get the SM64LBuilder scripts.
 
-# For Casual Use
-
 ## Dependencies
 
 First get the depencies installed so you can use this:

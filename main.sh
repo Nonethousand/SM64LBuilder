@@ -47,11 +47,11 @@ if [ -e ./.variables/.dev_mode ]; then
 
                            clear
                            chmod 755 ./scripts/other/builder.sh
-                           cd ./scripts
+                           cd scripts
                            if [ $CHOICE == "11" ]; then
-                             cd ./.variables
+                             cd .variables
                              REMOVE=$(zenity --list --column variables $(ls -A))
-                             cd ..
+                             cd ../..
                              if [ $REMOVE == "temp" ]; then
                              echo "You can't remove that!"
                            else
@@ -114,7 +114,7 @@ CHOICE=$(dialog --clear \
 
 clear
 chmod 755 ./scripts/other/builder.sh
-cd ./scripts/other
+cd scripts/other/
 if [ $CHOICE == "13" ]; then
   echo "Goodbye!"
 else
@@ -122,7 +122,7 @@ else
     echo "" >> ./.variables/.dev_mode
     cd ../..
     ./main.sh
-    cd ./scripts/other
+    cd scripts/other
   else
     if [ $CHOICE == "12" ]; then
       xdg-open https://github.com/HiImBlahh/SM64LBuilder/issues/new?assignees=\&labels=bug\&template=bug_report.md\&title=
@@ -155,7 +155,7 @@ else
           sudo apt-get install -y mpg123
           cd ../..
           git clone https://github.com/HiImBlahh/music-SM64LBuilder.git
-          cd ./scripts/other
+          cd scripts/other
         fi
       fi
       else

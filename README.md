@@ -15,7 +15,7 @@ First get the depencies installed so you can use this:
 
 ### Pacman/Arch
 ```
-pacman -S dialog zenity base-devel glew sdl2 sdl2_gfx sdl2_image sdl2_mixer sdl2_net
+pacman -S dialog zenity base-devel glew sdl2 sdl2_gfx sdl2_image sdl2_mixer sdl2_net mpg123
 ```
 ### Apt/Ubuntu
 ```

@@ -13,7 +13,7 @@ while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symli
   [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE" # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
 done
 DIR="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
-echo -e "alias SM64LBuilder='. $DIR/main.sh'" >> ~/.bashrc
+echo -e "alias SM64LBuilder='cd $DIR ; sh main.sh'" >> ~/.bashrc
 echo "" >> ./.variables/.created_alias
 fi
 fi

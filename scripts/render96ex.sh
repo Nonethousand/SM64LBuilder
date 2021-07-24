@@ -1,9 +1,9 @@
-sudo apt install build-essential libglew-dev libsdl2-dev
-cd ~/SM64LBuilder/repos
+#sudo apt install build-essential libglew-dev libsdl2-dev
+cd ../repos
 git clone --single-branch --branch alpha https://github.com/Render96/Render96ex.git
 echo "Please select your baserom."
-if [ -e ~/SM64LBuilder/.variables/.baserompath ]; then
-  cp $(cat ~/SM64LBuilder/.variables/.baserompath) Render96ex
+if [ -e ../.variables/.baserompath ]; then
+  cp $(cat ../.variables/.baserompath) Render96ex
 else
 cp $(zenity --file-selection --file-filter='z64 ROMS (z64) | *.z64' --title="Select your z64 ROM") Render96ex
 fi

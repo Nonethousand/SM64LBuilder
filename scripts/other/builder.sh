@@ -3,8 +3,8 @@ BLUE='\033[0;34m'
 echo -e "${BLUE}"
 if [ $1 == "9" ]; then
   echo "Select a build to play."
-  cd ../../repos
-  cd ./$(zenity --list --column Repos $(ls))/build/us_pc/
+  cd ~/SM64LBuilder/repos
+  cd ~/SM64LBuilder/repos/$(zenity --list --column Repos $(ls))/build/us_pc/
   #Checking for all versions of the executable
   if [ -e sm64.us.f3dex2e ]; then
     ./sm64.us.f3dex2e
@@ -23,7 +23,7 @@ if [ $1 == "9" ]; then
   fi
 else
 if [ $1 == "8" ]; then
-  cd ../../repos
+  cd ~/SM64LBuilder/repos
   echo "Select a repo to rebuild."
   FOLDER=$(zenity --list --column Repos $(ls))
   make clean
@@ -43,8 +43,8 @@ if [ $1 == "8" ]; then
   fi
 else
 if [ $1 == "6" ]; then
-  chmod 755 ./create-new-repo.sh
-  sh ./create-new-repo.sh
+  chmod 755 ~/SM64LBuilder/scripts/other/create-new-repo.sh
+  sh ~/SM64LBuilder/scripts/other/create-new-repo.sh
 else
 if [ $1 == "5" ]; then
   git fetch
@@ -56,22 +56,22 @@ echo "ARE YOU SURE YOU WANT TO REMOVE SM64LBUILDER? THIS ACTION CANNOT BE UNDONE
 read answer
 if [ $answer == "y" ]; then
 echo "Removing SM64LBuilder... Bye..."
-cd ../../../
+cd ~
 rm -rf SM64LBuilder
 fi
 else
 if [ $1 == "3" ]; then
-cd ../../repos
+cd ~/SM64LBuilder/repos
 echo "Select a repo to remove."
 rm -rf $(zenity --list --column Repos $(ls))
 else
   if [ $1 == "7" ]; then
-  cd ..
+  cd ~/SM64LBuilder/scripts
   echo "Select a script to remove."
   rm $(zenity --list --column Scripts $(ls))
   else
 if [ $1 == "2" ]; then
-cd ../../repos
+cd ~/SM64LBuilder/repos
 LINK=$(zenity --forms --add-entry=Github-Clone-Link)
 FOLDER=$(zenity --forms --add-entry=repo-folder-name)
 git clone $LINK
@@ -90,18 +90,18 @@ IN=$(zenity --list --checklist --title "Build Flags" --text "Flags" --column "" 
 make $(echo $IN | tr "|" " ")
 echo $FOLDER "compiled!"
 else
-cd ..
+cd ~/SM64LBuilder/scripts
 REPO=$(zenity --list --column Repos $(ls -p1 | grep -v / | sed -e 's/\.sh$//'))
 /bin/echo -e "You selected $REPO"
-if [ -d ./music-SM64LBuilder ]; then
-  mpg123 -q ../music-SM64LBuilder/MARIO_1A.mp3
+if [ -d ~/SM64LBuilder/music-SM64LBuilder ]; then
+  mpg123 -q ~/SM64LBuilder/music-SM64LBuilder/MARIO_1A.mp3
   chmod 755 $REPO.sh
 sh $REPO.sh & build_pid=$!
-chmod 755 ./other/playmusic.sh
-sh ./other/playmusic.sh & play_pid=$!
+chmod 755 ~/SM64LBuilder/scripts/other/playmusic.sh
+sh ~/SM64LBuilder/scripts/other/playmusic.sh & play_pid=$!
 wait $build_pid
 kill $play_pid
-mpg123 -q ./music-SM64LBuilder/event_star_collect.mp3
+mpg123 -q ~/SM64LBuilder/music-SM64LBuilder/event_star_collect.mp3
 echo "The music doesn't stop yet so you have to press ctrl+z"
 else
 chmod 755 $REPO.sh

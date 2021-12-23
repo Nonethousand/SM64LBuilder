@@ -1,32 +1,25 @@
 #!/bin/bash
 
-if [ -e ./.variables/.created_alias ]; then
+if [ -e ~/SM64LBuilder/.variables/.created_alias ]; then
   echo
 else
-  if [ $1 == "--no-alias" ]; then
+  if [ $1 == "--no-alias" ] || [ $1 == "-nA" ]; then
     echo
   else
-  SOURCE="${BASH_SOURCE[0]}"
-while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
-  DIR="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
-  SOURCE="$(readlink "$SOURCE")"
-  [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE" # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
-done
-DIR="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
-echo -e "alias SM64LBuilder='cd $DIR ; sh main.sh'" >> ~/.bashrc
-echo "" >> ./.variables/.created_alias
+cd
+echo -e "alias -p SM64LBuilder='~/SM64LBuilder/main.sh'" >> .bash_aliases
+echo "" >> ~/SM64LBuilder/.variables/.created_alias
+cd ~/SM64LBuilder
 fi
 fi
 
-if [ -e ./.variables/.dev_mode ]; then
-  #Dev mode, mainly for me
+if [ -e ~/SM64LBuilder/.variables/.dev_mode ]; then #Dev mode, mainly for me
   HEIGHT=21
   WIDTH=40
   CHOICE_HEIGHT=14
   BACKTITLE="SM64LBuilder"
   TITLE="What to do?"
   MENU="No, this is not a clone of smlinux"
-
   OPTIONS=(1 "Build"
            2 "Build with a custom repo"
            3 "Remove a repo"
@@ -52,12 +45,11 @@ if [ -e ./.variables/.dev_mode ]; then
                            2>&1 >/dev/tty)
 
                            clear
-                           chmod 755 ./scripts/other/builder.sh
-                           cd scripts
+                           chmod 755 ~/SM64LBuilder/scripts/other/builder.sh
+                           cd ~/SM64LBuilder/scripts
                            if [ $CHOICE == "11" ]; then
-                             cd ../.variables
+                             cd ~/SM64LBuilder/.variables
                              REMOVE=$(zenity --list --column variables $(ls -A))
-                             cd ../scripts
                              if [ $REMOVE == "temp" ]; then
                              echo "You can't remove that!"
                            else
@@ -65,25 +57,23 @@ if [ -e ./.variables/.dev_mode ]; then
                            fi
                            else
                              if [ $CHOICE == "10" ]; then
-                               rm ./.variables/.dev_mode
-                               cd ..
+                               rm ~/SM64LBuilder/.variables/.dev_mode
+                               cd ~/SM64LBuilder
                                ./main.sh
-                               cd scripts
                              else
                                if [ $CHOICE == "14" ]; then
                                  echo "Goodbye!"
-                                 exit
                                else
                                  if [ $CHOICE == "12" ]; then
-                                   rm ./.variables/.created_alias
-                                   rm ./.variables/.dev_mode
-                                   rm ./.variables/.baserompath
-                                   rm -rf ./music-SM64LBuilder
+                                   rm ~/SM64LBuilder/.variables/.created_alias
+                                   rm ~/SM64LBuilder/.variables/.dev_mode
+                                   rm ~/SM64LBuilder/.variables/.baserompath
+                                   rm -rf ~/SM64LBuilder/music-SM64LBuilder
                                  else
                                    if [ $CHOICE == "13" ]; then
                                      xdg-open https://github.com/HiImBlahh/SM64LBuilder/issues/new?assignees=\&labels=bug\&template=bug_report.md\&title=
                                    else
-                           ./other/builder.sh $CHOICE
+                           ./builder.sh $CHOICE
                          fi
                          fi
                              fi
@@ -121,15 +111,14 @@ CHOICE=$(dialog --clear \
                 2>&1 >/dev/tty)
 
 clear
-chmod 755 ./scripts/other/builder.sh
-cd scripts/other/
+chmod 755 ~/SM64LBuilder/scripts/other/builder.sh
+cd ~/SM64LBuilder/scripts/other
 if [ $CHOICE == "13" ]; then
   echo "Goodbye!"
-  exit
 else
   if [ $CHOICE == "10" ]; then
-    echo "" >> ./.variables/.dev_mode
-    cd ../..
+    echo "" >> ~/SM64LBuilder/.variables/.dev_mode
+    cd ~/SM64LBuilder
     ./main.sh
   else
     if [ $CHOICE == "12" ]; then
@@ -157,12 +146,12 @@ else
 
       clear
       if [ $CHOICE == "1" ]; then
-        echo $(zenity --file-selection --file-filter='z64 ROMS (z64) | *.z64' --title="Select your z64 ROM") >> ./.variables/.baserompath
+        echo $(zenity --file-selection --file-filter='z64 ROMS (z64) | *.z64' --title="Select your z64 ROM") >> ~/SM64LBuilder/.variables/.baserompath
       else
         if [ $CHOICE == "2" ]; then
-          cd ../..
+          sudo apt-get install -y mpg123
+          cd ~/SM64LBuilder
           git clone https://github.com/HiImBlahh/music-SM64LBuilder.git
-          cd scripts/other
         fi
       fi
       else

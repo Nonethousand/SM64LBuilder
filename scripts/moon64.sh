@@ -1,4 +1,5 @@
 cd ~/SM64LBuilder/repos
+echo "Cloning moon64..."
 git clone https://github.com/KiritoDv/Moon64.git
 echo "Please select your baserom."
 if [ -e ~/SM64LBuilder/.variables/.baserompath ]; then

@@ -1,4 +1,5 @@
 cd ~/SM64LBuilder/repos
+echo "Cloning sm64ex..."
 git clone https://github.com/sm64pc/sm64ex.git
 echo "Please select your baserom"
 if [ -e ~/SM64LBuilder/.variables/.baserompath ]; then

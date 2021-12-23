@@ -1,4 +1,5 @@
 cd ~/SM64LBuilder/repos
+echo "Cloning sm64ex-alo..."
 git clone https://github.com/AloXado320/sm64ex-alo.git
 echo "Please select your baserom."
 if [ -e ~/SM64LBuilder/.variables/.baserompath ]; then

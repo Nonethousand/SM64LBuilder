@@ -1,5 +1,7 @@
+echo "Installing dependencies..."
 sudo apt install build-essential libglew-dev libsdl2-dev
 cd ~/SM64LBuilder/repos
+echo "Cloning render96ex..."
 git clone --single-branch --branch alpha https://github.com/Render96/Render96ex.git
 echo "Please select your baserom."
 if [ -e ~/SM64LBuilder/.variables/.baserompath ]; then

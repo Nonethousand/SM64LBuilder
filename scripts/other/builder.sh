@@ -44,7 +44,7 @@ if [ $1 == "8" ]; then
 else
 if [ $1 == "6" ]; then
   chmod 755 ~/SM64LBuilder/scripts/other/create-new-repo.sh
-  sh ~/SM64LBuilder/scripts/other/create-new-repo.sh
+  bash ~/SM64LBuilder/scripts/other/create-new-repo.sh
 else
 if [ $1 == "5" ]; then
   git fetch
@@ -96,16 +96,18 @@ REPO=$(zenity --list --column Repos $(ls -p1 | grep -v / | sed -e 's/\.sh$//'))
 if [ -d ~/SM64LBuilder/music-SM64LBuilder ]; then
   mpg123 -q ~/SM64LBuilder/music-SM64LBuilder/MARIO_1A.mp3
   chmod 755 $REPO.sh
-sh $REPO.sh & build_pid=$!
+bash $REPO.sh &
+build_pid=$!
 chmod 755 ~/SM64LBuilder/scripts/other/playmusic.sh
-sh ~/SM64LBuilder/scripts/other/playmusic.sh & play_pid=$!
+bash ~/SM64LBuilder/scripts/other/playmusic.sh &
+play_pid=$!
 wait $build_pid
 kill $play_pid
-mpg123 -q ~/SM64LBuilder/music-SM64LBuilder/event_star_collect.mp3
 echo "The music doesn't stop yet so you have to press ctrl+z"
+mpg123 -q ~/SM64LBuilder/music-SM64LBuilder/event_star_collect.mp3
 else
 chmod 755 $REPO.sh
-sh $REPO.sh
+bash $REPO.sh
 fi
 fi
 fi

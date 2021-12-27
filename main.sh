@@ -1,11 +1,11 @@
 #!/bin/bash
 cd ~/SM64LBuilder
-if [ $(git fetch --dry-run) == "" ]; then
-  echo
-else
+if [ $(git fetch --dry-run) ]; then
   echo "Update detected. Updating SM64LBuilder..."
   git fetch
   git pull
+else
+  echo
 fi
 if [ -e ~/SM64LBuilder/.variables/.created_alias ]; then
   echo

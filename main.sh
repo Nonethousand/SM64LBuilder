@@ -1,8 +1,12 @@
 #!/bin/bash
 cd ~/SM64LBuilder
 if [ $(git fetch --dry-run) ]; then
-  echo "Update detected. Please update SM64LBuilder."
-  sleep 2
+  echo
+else
+  echo "Update found. Updating the builder..."
+  git fetch
+  git pull
+fi
 if [ -e ~/SM64LBuilder/.variables/.created_alias ]; then
   echo
 else

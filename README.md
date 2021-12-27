@@ -1,5 +1,7 @@
 # SM64LBuilder is working again!
 
+[Video Tutorial](https://youtu.be/TFyNEDrzgao)
+
 SM64LBuilder is a Super Mario 64 PC port builder for Linux.
 
 # WARNING:

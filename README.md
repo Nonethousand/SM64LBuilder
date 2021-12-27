@@ -27,3 +27,6 @@ at least once and reloading your terminal, you can run it by using the command
 ```
 SM64LBuilder
 ```
+
+
+[Official Discord](https://discord.gg/XvV2JpHB)

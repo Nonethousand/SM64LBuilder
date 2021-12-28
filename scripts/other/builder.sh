@@ -5,7 +5,6 @@ if [ $1 == "9" ]; then
   echo "Select a build to play."
   cd ~/SM64LBuilder/repos
   cd ~/SM64LBuilder/repos/$(zenity --list --column Repos $(ls))/build/us_pc/
-  #Checking for all versions of the executable
   if [ -e sm64.us.f3dex2e ]; then
     ./sm64.us.f3dex2e
   else
@@ -63,7 +62,10 @@ else
 if [ $1 == "3" ]; then
 cd ~/SM64LBuilder/repos
 echo "Select a repo to remove."
-rm -rf $(zenity --list --column Repos $(ls))
+DIR=$(zenity --list --column Repos $(ls))
+if [ -d $DIR ]; then
+rm -rf $DIR
+fi
 else
   if [ $1 == "7" ]; then
   cd ~/SM64LBuilder/scripts

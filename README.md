@@ -1,3 +1,5 @@
+This was just a fun project to test out my shell skills, and it's no longer being updated.
+
 # SM64LBuilder is working again!
 
 [Video Tutorial](https://youtu.be/TFyNEDrzgao)
